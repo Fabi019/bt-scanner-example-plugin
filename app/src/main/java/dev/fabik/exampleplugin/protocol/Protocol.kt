@@ -1,6 +1,6 @@
 package dev.fabik.exampleplugin.protocol
 
-// Directly taken from: app/src/main/java/dev/fabik/bluetoothhid/bt/ExternalProtocol.kt
+// Based on: app/src/main/java/dev/fabik/bluetoothhid/bt/ExternalProtocol.kt
 object Protocol {
     const val CORE_PACKAGE = "dev.fabik.bluetoothhid"
 
