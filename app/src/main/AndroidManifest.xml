@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Required permission for the plugin to be detected and receive scans -->
+    <uses-permission android:name="dev.fabik.bluetoothhid.permission.RECEIVE_SCANS" />
+
+    <!-- Required to send plugin results back -->
+    <queries>
+        <package android:name="dev.fabik.bluetoothhid" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ExamplePlugin">
+
+        <receiver android:name=".ScanReceiver" android:exported="true"
+            android:permission="dev.fabik.bluetoothhid.permission.RECEIVE_SCANS">
+            <intent-filter>
+                <action android:name="dev.fabik.bluetoothhid.action.BARCODE_SCANNED" />
+            </intent-filter>
+            <meta-data android:name="dev.fabik.bluetoothhid.plugin.label"
+                android:value="Example Plugin" />
+            <meta-data android:name="dev.fabik.bluetoothhid.plugin.shortLabel"
+                android:value="Example" />
+            <meta-data android:name="dev.fabik.bluetoothhid.plugin.author"
+                android:value="The author" />
+        </receiver>
+
+        <receiver android:name=".ControlReceiver" android:exported="true"
+            android:permission="dev.fabik.bluetoothhid.permission.RECEIVE_SCANS">
+            <intent-filter>
+                <action android:name="dev.fabik.bluetoothhid.plugin.action.SET_ENABLED" />
+                <action android:name="dev.fabik.bluetoothhid.plugin.action.PING" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
