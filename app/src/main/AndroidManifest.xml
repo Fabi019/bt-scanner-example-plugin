@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamplePlugin">
 
-        <receiver android:name=".ScanReceiver" android:exported="true"
+        <receiver android:name=".receiver.ScanReceiver" android:exported="true"
             android:permission="dev.fabik.bluetoothhid.permission.RECEIVE_SCANS">
             <intent-filter>
                 <action android:name="dev.fabik.bluetoothhid.action.BARCODE_SCANNED" />
@@ -33,7 +33,7 @@
                 android:value="The author" />
         </receiver>
 
-        <receiver android:name=".ControlReceiver" android:exported="true"
+        <receiver android:name=".receiver.ControlReceiver" android:exported="true"
             android:permission="dev.fabik.bluetoothhid.permission.RECEIVE_SCANS">
             <intent-filter>
                 <action android:name="dev.fabik.bluetoothhid.plugin.action.SET_ENABLED" />
